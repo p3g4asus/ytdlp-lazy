@@ -6,6 +6,7 @@ import json
 import mimetypes
 import netrc
 import optparse
+import certifi
 import os
 import re
 import sys
@@ -25,8 +26,8 @@ from yt_dlp.utils import (
 
 
 class GitHubReleaser(object):
-    _API_URL = 'https://api.github.com/repos/xibr/ytdlp-lazy/releases'
-    _UPLOADS_URL = 'https://uploads.github.com/repos/xibr/ytdlp-lazy/releases/%s/assets?name=%s'
+    _API_URL = 'https://api.github.com/repos/p3g4asus/ytdlp-lazy/releases'
+    _UPLOADS_URL = 'https://uploads.github.com/repos/p3g4asus/ytdlp-lazy/releases/%s/assets?name=%s'
     _NETRC_MACHINE = 'github.com'
 
     def __init__(self, debuglevel=0):
@@ -107,4 +108,5 @@ def main():
 
 
 if __name__ == '__main__':
+    os.environ['SSL_CERT_FILE'] = certifi.where()
     main()
